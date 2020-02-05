@@ -1,0 +1,156 @@
+<html>
+<head>
+<!-- for boxes and menus-->
+<link href="http://fonts.googleapis.com/css?family=Didact+Gothic" rel="stylesheet" />
+<link href="default.css" rel="stylesheet" type="text/css" media="all" />
+<link href="fonts.css" rel="stylesheet" type="text/css" media="all" />
+
+<!-- for the footer-->
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BMR Calculator</title>
+<link rel="stylesheet" href="css/demo.css">
+<link rel="stylesheet" href="css/footer-distributed-with-address-and-phones.css">
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+<link href="http://fonts.googleapis.com/css?family=Cookie" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="css/bmr.css">
+
+
+</head>
+
+<body>
+<div id="header-wrapper">
+	<div id="header" class="container">
+		<div id="logo">
+			<h1><a href="homepage.html">H&F</a></h1>
+		</div>
+		<div id="menu">
+			<ul>
+				<li><a href="homepage.html" accesskey="1" title="">Homepage</a></li>
+				<li><a href="nutrition_calculator.html" accesskey="2" title="">Nutrition Value Calculator</a></li>
+				<li><a href="protein_calculator.html" accesskey="3" title="">Protein Calculator</a></li>
+				<li class="active"><a href="bmr_calculator.html" accesskey="4" title="">BMR Calculator</a></li>
+                <li><a href="bmi_calculator.html" accesskey="5" title="">BMI Calculator</a></li>
+				<li><a href="workouts.html" accesskey="6" title="">Workouts</a></li>
+                <li><a href="diets.html" accesskey="7" title="">Diets</a></li>
+			</ul>
+			</ul>
+		</div>
+	</div>
+    <center>
+        <div class="title">
+                <h2>Calculate your Basal Metabolic Rate!</h2>
+            <span class="byline">Basal Metabolic Rate is the number of calories required to keep your body functioning at rest.</span>
+        </div>
+        <div class= "bmr">
+      <div class="form">
+        
+        <form class="bmr" action="#" >
+        
+        
+            <p class="color">male</p>
+        <input type="radio" id="gender" name="gender" value="male" checked> 
+            <p class="color">female</p>
+        <input type="radio" id="gender" name="gender" value="fem">
+            <p class="color">age</p><br>
+            
+        <input type="number" id="age" value="20"><br>
+            <p class="color">height</p><br>
+        <input type="number" id="height" value="180"><br>
+            <p class="color">weight</p><br>
+        <input type="number" id="weight" value="80"><br>
+        
+        <button type="button" onclick="">Result</button>
+
+        <p class="result" id="lblResult"></p>
+        </form>
+    </center>
+</div>
+    </div>
+    </div>
+    
+<!-- Calculation formula is from https://stackoverflow.com/questions/43382502/simple-bmr-calculator-html-javascript MIGHT PUT THIS IN A SEPERATE FILE LATER -->
+<script>
+var bmr;
+ 
+function calc() {
+  var age = document.getElementById("age").value;
+  var gender = document.querySelector('input[name="gender"]:checked').value;
+  var height = document.getElementById("height").value;
+  var weight = document.getElementById("weight").value;
+  if (gender == "male") {
+    bmr = 66.5 + ( 13.75 * weight ) + ( 5.003 * height ) - ( 6.755 * age );
+  }
+  else {
+    bmr = 655.1 + ( 9.563 * weight ) + ( 1.850 * height ) - ( 4.676 * age );
+  } 
+}
+
+document.getElementsByTagName("button")[0].addEventListener("click", function() {
+  calc();
+  bmr = bmr.toFixed(2);
+  bmr = "Your BMR is " + bmr + " which is good!";
+  document.getElementById('lblResult').innerHTML = bmr;
+})
+</script>
+    
+
+<!-- For footer got an idea from this website: https://tutorialzine.com/2015/01/freebie-5-responsive-footer-templates -->
+<footer class="footer-distributed">
+
+    <div class="footer-left">
+
+        <h3>H&F</h3>
+
+        <p class="footer-links">
+            <a href="homepage.html">Home</a>
+            ·
+            <a href="#">Blog</a>
+            ·
+            <a href="#">About</a>
+            ·
+            <a href="#">Faq</a>
+
+        </p>
+        <p class="footer-company-name">Healthy & Fit &copy; 2015</p>
+    </div>
+
+    <div class="footer-center">
+
+        <div>
+            <i class="fa fa-map-marker"></i>
+            <p><span>xxx Street</span> Amsterdam, Netherlands</p>
+        </div>
+
+        <div>
+            <i class="fa fa-phone"></i>
+            <p>+31 619311739</p>
+        </div>
+
+        <div>
+            <i class="fa fa-envelope"></i>
+            <p><a href="mailto:support@hf.com">support@hf.com</a></p>
+        </div>
+
+    </div>
+
+    <div class="footer-right">
+
+        <p class="footer-company-about">
+            <span>About the company</span>
+            We aim to help you to get healthier and fitter!
+        </p>
+
+        <div class="footer-icons">
+
+            <a href="#"><i class="fa fa-facebook"></i></a>
+            <a href="#"><i class="fa fa-twitter"></i></a>
+            <a href="#"><i class="fa fa-linkedin"></i></a>
+            <a href="#"><i class="fa fa-github"></i></a>
+        </div>
+    </div>
+</footer>
+</body>
+</html>
+

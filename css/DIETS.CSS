@@ -1,0 +1,34 @@
+/*******************************************************************************/
+/****************************DIET SCROLL THING*********************************/
+
+    .myBox {
+        border: none;
+        padding: 5px;
+
+        height: 500px;
+        
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+    ::-webkit-scrollbar {
+        width: 12px;
+        height: 12px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: grey;  
+        border-radius: 10px;
+    }
+
+    .mybox a {
+        background-color: #eee; /* Grey background color */
+        color: black; /* Black text color */
+        display: block; /* Make the links appear below each other */
+        padding: 12px; /* Add some padding */
+        text-decoration: none; /* Remove underline from links */
+        font-size: 26;
+    }
+
+    .mybox a:hover {
+        background-color: #ccc; /* Dark grey background on mouse-over */
+    }
